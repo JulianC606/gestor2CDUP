@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  active: 'Activo'
+  next: 'Próximo'
+  past: 'Pasado'

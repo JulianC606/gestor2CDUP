@@ -1,31 +1,41 @@
 class Accounting::AccountsController < ApplicationController
   before_action :set_accounting_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_dashboard, only: [:show, :new, :edit, :index]
 
   # GET /accounting/accounts
   # GET /accounting/accounts.json
   def index
+    authorize Accounting::Account
+
     @accounting_accounts = Accounting::Account.all
   end
 
   # GET /accounting/accounts/1
   # GET /accounting/accounts/1.json
   def show
+    authorize Accounting::Account
+
   end
 
   # GET /accounting/accounts/new
   def new
+    
     @accounting_account = Accounting::Account.new
+    authorize Accounting::Account
+
   end
 
   # GET /accounting/accounts/1/edit
   def edit
+    authorize Accounting::Account
   end
 
   # POST /accounting/accounts
   # POST /accounting/accounts.json
   def create
-    @accounting_account = Accounting::Account.new(accounting_account_params)
 
+    @accounting_account = Accounting::Account.new(accounting_account_params)
+    authorize Accounting::Account
     respond_to do |format|
       if @accounting_account.save
         format.html { redirect_to @accounting_account, notice: 'Account was successfully created.' }
@@ -40,6 +50,8 @@ class Accounting::AccountsController < ApplicationController
   # PATCH/PUT /accounting/accounts/1
   # PATCH/PUT /accounting/accounts/1.json
   def update
+    authorize Accounting::Account
+
     respond_to do |format|
       if @accounting_account.update(accounting_account_params)
         format.html { redirect_to @accounting_account, notice: 'Account was successfully updated.' }
@@ -54,6 +66,8 @@ class Accounting::AccountsController < ApplicationController
   # DELETE /accounting/accounts/1
   # DELETE /accounting/accounts/1.json
   def destroy
+    authorize Accounting::Account
+
     @accounting_account.destroy
     respond_to do |format|
       format.html { redirect_to accounting_accounts_url, notice: 'Account was successfully destroyed.' }
@@ -67,8 +81,12 @@ class Accounting::AccountsController < ApplicationController
       @accounting_account = Accounting::Account.find(params[:id])
     end
 
+    def set_dashboard
+      @dashboard = true
+    end
+
     # Only allow a list of trusted parameters through.
     def accounting_account_params
-      params.fetch(:accounting_account, {})
+      params.require(:accounting_account).permit(:name, :initial_balance, :in_charge_id)
     end
 end

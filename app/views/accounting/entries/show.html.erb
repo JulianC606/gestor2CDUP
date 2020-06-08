@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @accounting_entry.date %>
+</p>
+
+<p>
+  <strong>Transaction:</strong>
+  <%= @accounting_entry.transaction_id %>
+</p>
+
+<%= link_to 'Back', accounting_entries_path %>

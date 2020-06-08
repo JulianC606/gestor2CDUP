@@ -1,4 +1,1 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_accounting_event_path(@accounting_event) %> |
-<%= link_to 'Back', accounting_events_path %>
+<%= render 'accounting/events/index/card', event: @accounting_event, view: 'show' %>

@@ -1,0 +1,63 @@
+<ul class="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  <!-- Sidebar - Brand -->
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+    <div class="sidebar-brand-icon">
+         <img src=<%= asset_path("profile.png") %> width='30' height='30' class='d-inline-block align-top' loading='lazy' />
+        
+    </div>
+    <div class="sidebar-brand-text mx-1">Gestión CDUP<sup>2</sup></div>
+  </a>
+
+  <!-- Divider -->
+
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item">
+    <a class="nav-link" href="/dashboard">
+      <i class="las la-tachometer-alt text-white"></i>
+      <span>Dashboard</span></a>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider">
+
+  <!-- Heading -->
+  <div class="sidebar-heading text-primary">
+    Scripts
+  </div>
+
+  <!-- Nav Item - Pages Collapse Menu -->
+  <li class="nav-item">
+    <a class="nav-link" href="#" data-toggle="collapse" data-target="#events_menu_sidebar" aria-expanded="false" aria-controls="events_menu_sidebar">
+      <i class="las la-calendar text-white"></i>
+      <span>Cuentas</span>
+    </a>
+    <div id="events_menu_sidebar" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar" >
+      <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Eventos</h6>
+        <%= link_to  "Ver todos", accounting_events_path, class: 'collapse-item' %>
+        <%= link_to "Crear Nuevo Evento", new_accounting_event_path, class: 'collapse-item' %>
+        <h6 class="collapse-header">Transacciones</h6>
+        <%= link_to  "Ver todas", accounting_transactions_path, class: 'collapse-item' %>
+        <%= link_to "Crear nueva transacción", new_accounting_transaction_path, class: 'collapse-item' %>
+        <h6 class="collapse-header">Cuentas</h6>
+        <%= link_to  "Ver todas", accounting_accounts_path, class: 'collapse-item' %>
+        <%= link_to "Crear nueva Cuenta", new_accounting_account_path, class: 'collapse-item' %>
+        <h6 class="collapse-header">Diario</h6>
+        <%= link_to  "Asientos", accounting_entries_path, class: 'collapse-item' %>
+        <%= link_to  "Registros", accounting_entry_lines_path, class: 'collapse-item' %>
+      </div>
+    </div>
+  </li>
+
+  <!-- Divider -->
+  <hr class="sidebar-divider d-none d-md-block">
+
+  <!-- Sidebar Toggler (Sidebar) -->
+  <div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle">
+      <i class="fas fa-chevron-left text-white"></i>
+    </button>
+  </div>
+
+</ul>

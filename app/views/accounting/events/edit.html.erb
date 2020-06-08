@@ -1,6 +1,29 @@
-<h1>Editing Accounting Event</h1>
+<div class="container">
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-2">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-event-form-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Editar evento</h1>
+                </div>
+                <%= render 'form', accounting_event: @accounting_event, submit: 'Editar Evento' %>
+                <hr>
+                <div class='my-1 text-center'>
+                  <%= link_to 'Ver Evento', @accounting_event, class: 'btn btn-info' %>
+                  <%= link_to 'Volver', accounting_events_path, class: 'btn btn-danger' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', accounting_event: @accounting_event %>
-
-<%= link_to 'Show', @accounting_event %> |
-<%= link_to 'Back', accounting_events_path %>
