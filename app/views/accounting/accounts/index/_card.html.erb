@@ -1,0 +1,38 @@
+<div class="col-lg-4 col-md-6 col-12 mt-2">
+  <div class="card border-left-<%= get_balance_color account.balance %> shadow py-2">
+    <div class="card-body">
+      <h4 class="h6 font-weight-bold text-secondary text-uppercase mb-2"><%=  account.name %></h4>
+      <hr class='m-0'>
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Responsable</p>
+          <strong><%= account.in_charge_id %></strong>
+          <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Número de Transacciones</p>
+          <strong><%= account.transactions.count %></strong>
+        </div>
+        <div class="col-auto d-flex flex-column justify-content-center align-items-center text-<%= get_balance_color account.balance %>">
+          <i class="fas fa-<%= get_balance_icon account.balance %> fa-2x"></i>
+          <h6 class='text-xs font-weight-bold text-<%= get_balance_color account.balance %> text-uppercase mb-0 mt-1'>Balance</h6>
+          <%= account.balance %>
+        </div>
+      </div>
+      <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Acciones</p>
+      
+      <%= link_to account, method: :delete, data: { confirm: 'Are you sure?' }, class:'float-right mr-1 text-danger' do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+      <%= link_to edit_accounting_account_path(account), class:'float-right mr-1 text-info' do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+      <% if view == 'index' %>
+        <%= link_to account, class:'float-right mr-1 text-success' do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% else %>
+        <%= link_to accounting_accounts_path, class:'float-right mr-1 text-warning' do %>
+          <i class="fas fa-undo"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

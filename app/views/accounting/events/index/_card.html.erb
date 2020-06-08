@@ -1,0 +1,39 @@
+<div class="col-lg-4 col-md-6 col-12 mt-2">
+  <div class="card border-left-<%= get_status_color event.status %> shadow py-2">
+    <div class="card-body">
+      <h4 class="h6 font-weight-bold text-secondary text-uppercase mb-2"><%=  event.name %></h4>
+      <hr class='m-0'>
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Fecha de Inicio</p>
+          <strong><%= event.start_date %></strong>
+          <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Fecha de Culminación</p>
+          <strong><%= event.end_date %></strong>
+        </div>
+        <div class="col-auto d-flex flex-column justify-content-center align-items-center text-<%= get_status_color event.status %>">
+          <i class="far fa-calendar-<%= get_status_icon event.status %> fa-3x"></i>
+          <%= t(event.status) %>
+        </div>
+      </div>
+      <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Comentarios</p>
+      <p><%= event.comments %></p>
+      <p class='text-xs font-weight-bold text-info text-uppercase mb-0 mt-1'>Acciones</p>
+      
+      <%= link_to event, method: :delete, data: { confirm: 'Are you sure?' }, class:'float-right mr-1 text-danger' do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+      <%= link_to edit_accounting_event_path(event), class:'float-right mr-1 text-info' do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+      <% if view == 'index' %>
+        <%= link_to event, class:'float-right mr-1 text-success' do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% else %>
+        <%= link_to accounting_events_path, class:'float-right mr-1 text-warning' do %>
+          <i class="fas fa-undo"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

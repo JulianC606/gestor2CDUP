@@ -1,8 +1,7 @@
-<%= form_with(model: accounting_event, local: true) do |form| %>
+<%= form_with(model: accounting_event, local: true, html: {class:'user'}) do |form| %>
   <% if accounting_event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(accounting_event.errors.count, "error") %> prohibited this accounting_event from being saved:</h2>
-
       <ul>
         <% accounting_event.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,8 +9,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class='form-group'>
+    <%= form.label :name, 'Nombre del Evento' %>
+    <%= form.text_field :name, class:'form-control form-control-user' %>
   </div>
+  <div class='form-group'>
+    <%= form.label :start_date, 'Fecha de Inicio' %>
+    <%= form.date_field :start_date, class:'form-control form-control-user' %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :end_date, 'Fecha de Culminación' %>
+    <%= form.date_field :end_date, class:'form-control form-control-user' %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :comments, 'Comentarios' %>
+    <%= form.text_area :comments, class:'form-control form-control-user' %>
+  </div>
+  <%= form.submit class: "btn btn-primary btn-user btn-block", value: submit %>
 <% end %>

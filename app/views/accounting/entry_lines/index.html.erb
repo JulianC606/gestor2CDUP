@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accounting Entry Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Account number</th>
+      <th>Debit</th>
+      <th>Credit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounting_entry_lines.each do |accounting_entry_line| %>
+      <tr>
+        <td><%= accounting_entry_line.account_number %></td>
+        <td><%= accounting_entry_line.debit %></td>
+        <td><%= accounting_entry_line.credit %></td>
+        <td><%= link_to 'Show', accounting_entry_line %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
