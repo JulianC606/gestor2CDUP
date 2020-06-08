@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Account number:</strong>
+  <%= @accounting_entry_line.account_number %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= @accounting_entry_line.debit %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= @accounting_entry_line.credit %>
+</p>
+
+<%= link_to 'Back', accounting_entry_lines_path %>

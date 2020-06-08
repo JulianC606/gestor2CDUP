@@ -1,8 +1,7 @@
-<%= form_with(model: accounting_transaction, local: true) do |form| %>
+<%= form_with(model: accounting_transaction, local: true, html: {class:'user'}) do |form| %>
   <% if accounting_transaction.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(accounting_transaction.errors.count, "error") %> prohibited this accounting_transaction from being saved:</h2>
-
       <ul>
         <% accounting_transaction.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,8 +9,30 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class='form-group'>
+    <%= form.label :event_id, 'Evento' %>
+    <%= form.select :event_id, Accounting::Event.all.collect{|p| [ p.name, p.id ] }, { include_blank: 'Selecciona un evento' }, { class:'form-control' } %>
   </div>
+    <div class='form-group'>
+    <%= form.label :account_id, 'Cuenta' %>
+    <%= form.select :account_id, Accounting::Account.all.collect{|p| [ p.name, p.id ] }, { include_blank: 'Selecciona una cuenta' }, { class:'form-control' } %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :date, 'Fecha' %>
+    <%= form.date_field :date, class:'form-control form-control-user' %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :type_of_transaction, 'Tipo de Transacción' %>
+    <%= form.select :type_of_transaction, [['Ingreso', 0], ['Egreso', 1]], { include_blank: 'Selecciona el Tipo' }, { class:'form-control' } %>
+    <small class='form-text text-muted text-xs'>Ingreso es cuando entra dinero al club, ej: Ventas de dulces. <br/>Egreso cuando el dinero sale del club, ej: Compra de dulces para ventas</small>
+  </div>
+  <div class='form-group'>
+    <%= form.label :amount, 'Monto' %>
+    <%= form.number_field :amount, class:'form-control form-control-user', min: 0, step: '0.01' %>
+  </div>
+  <div class='form-group'>
+    <%= form.label :comments, 'Comentarios' %>
+    <%= form.text_area :amount, class:'form-control form-control-user' %>
+  </div>
+  <%= form.submit class: "btn btn-primary btn-user btn-block", value: submit %>
 <% end %>
