@@ -1,7 +1,7 @@
 class Accounting::AccountsController < ApplicationController
   before_action :set_accounting_account, only: [:show, :edit, :update, :destroy]
   before_action :set_dashboard, only: [:show, :new, :edit, :index]
-
+  layout "dashboard"
   # GET /accounting/accounts
   # GET /accounting/accounts.json
   def index
@@ -79,10 +79,6 @@ class Accounting::AccountsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_accounting_account
       @accounting_account = Accounting::Account.find(params[:id])
-    end
-
-    def set_dashboard
-      @dashboard = true
     end
 
     # Only allow a list of trusted parameters through.

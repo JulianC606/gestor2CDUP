@@ -1,7 +1,7 @@
 class Accounting::EventsController < ApplicationController
   before_action :set_accounting_event, only: [:show, :edit, :update, :destroy]
   before_action :set_dashboard, only: [:show, :new, :edit, :index]
-
+  layout "dashboard"
   # GET /accounting/events
   # GET /accounting/events.json
   def index

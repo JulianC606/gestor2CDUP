@@ -1,7 +1,7 @@
 class Accounting::TransactionsController < ApplicationController
   before_action :set_accounting_transaction, only: [:show, :edit, :update, :destroy]
   before_action :set_dashboard, only: [:show, :new, :edit, :index]
-
+  layout "dashboard"
   # GET /accounting/transactions
   # GET /accounting/transactions.json
   def index

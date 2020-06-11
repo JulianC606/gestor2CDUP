@@ -1,7 +1,7 @@
 class Accounting::EntryLinesController < ApplicationController
   before_action :set_accounting_entry_line, only: [:show]
   before_action :set_dashboard, only: [:show, :index]
-
+  layout "dashboard"
   # GET /accounting/entry_lines
   # GET /accounting/entry_lines.json
   def index

@@ -1,6 +1,5 @@
 (function ($) {
   'use strict' // Start of use strict
-  require('bootstrap')
   $(document).ready(() => {
     $(document).on('click', '#sidebarToggle', function (e) {
       $('#sidebarToggle').toggleClass('rotate-180')

@@ -1,0 +1,14 @@
+@import '@fortawesome/fontawesome-free';
+@import './templete/sb-admin-2.scss';
+@import 'accounting/accounts';
+@import 'accounting/transactions';
+@import 'accounting/events';
+
+.rotate-180{
+  transform: rotate(180deg) !important;
+}
+
+.gravatar {
+  height: 30px;
+  width: auto;
+}
